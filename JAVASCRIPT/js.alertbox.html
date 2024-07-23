@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript basics</title>
+    <script>
+        function myFunction(){
+        alert("<b> Example for a javascript function"); //internal js
+        }
+        function addition(a,b){
+            let sum = a+b;
+            alert("<b>Addition : " + sum + "</b>" );
+        }
+        function difference(a,b){
+            let diff = a-b;
+            alert("<b> Difference : "+ diff +"</b>");
+        }
+        function Multiplication(a,b){
+            let multiple =a*b;
+           alert("<b> Multiply :" + multiple + "</b>");
+        }
+        function division(a,b){
+            let divide = a/b;
+            alert(" Division :  "+ divide );// html tags has no meaning
+        }
+    </script>
+</head>
+<body>
+    <button onclick ="myFunction ()">Click Me </button> 
+    <br>
+    <button onclick = "addition(10,20)"> Addition</button>
+    <br>
+    <button onclick ="difference(4,3)"> Diff</button>
+    <br>
+    <button onclick ="Multiplication(4,2)">multiple</button>
+    <br>
+    <button onclick ="division(3,6)">Divide</button>
+</body>
+</html>
