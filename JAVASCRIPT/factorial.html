@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Factorial Calculation</title>
-    <script>
-        function factorial(){
-            let fact =1;
-            let n =parseInt(document.getElementById("n").value);
-            for(let i=1;i<=n;i++){
-                fact =fact*i;
+<html>
+    <head>
+        <title>
+            factorial
+        </title>
+        <script>
+            function calcute(){
+                var num=parseInt(document.getElementById("num").value)
+                var result=1;
+                for(var i=1;i <=num;i++){
+                    result = result *i;
+                }
+                document.getElementById("res").innerHTML ="factorial : "+result;
             }
-        document.getElementById("ResultDiv").innerHTML ="<b>Factorial:" + fact;
-    }
-    </script>
-</head>
-<body>
-    Enter a number: <input type ="text" id="n"/>
-    <br>
-    <button onclick="factorial()">Factorial</button>
-    <br><br>
-    <div id="ResultDiv">
-    </div>
-</body>
+        </script>
+        <body>
+            <input id="num" type="text" placeholder="enter value">
+            <button onclick="calcute()">calculate</button>
+            <div id="res"></div>
+        </body>
+        
+    </head>
 </html>

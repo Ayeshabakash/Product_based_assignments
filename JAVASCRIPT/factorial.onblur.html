@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculation</title>
+    <script>
+        function factorial(){
+            let fact =1;
+            let n =parseInt(document.getElementById("n").value);
+            for(let i=1;i<=n;i++){
+                fact =fact*i;
+            }
+        document.getElementById("ResultDiv").innerHTML ="<b>Factorial:" + fact;
+    }
+    </script>
+</head>
+<body>
+    Enter a number: <input type ="text" id="n" value="Enter posittive number"
+    onfocus="this.value=''" onblur ="factorial()"/> // without touching factorial button
+    <br>
+    <button onclick="factorial()">Factorial</button> 
+    <br><br>
+    <div id="ResultDiv">
+    </div>
+</body>
+</html>
