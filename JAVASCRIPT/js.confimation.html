@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript basics</title>
+    <script>
+        function myFunction(){
+        confirm("Do you want to continue?"); //internal js
+        }
+        function greeting(){
+            let name = prompt("enter your name");
+            alert("Welcome "+ name);
+        }
+    </script>
+</head>
+<body onload ="myFunction()">
+    <button onclick ="greeting()">Click me</button> 
+</body>
+</html>
