@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern</title>
+</head>
+<body>
+    <script>
+        function Pattern(rows) {
+            let pattern = '';
+            for (let i = 1; i <= rows; i++) {
+                pattern += '*'.repeat(i) + '<br>'; 
+            }
+            return pattern;
+        }
+        document.body.innerHTML = Pattern(5);
+    </script>
+</body>
+</html>
