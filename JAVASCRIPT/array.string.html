@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Length</title>
+    <script>
+        function myFunction() {
+            let str = document.getElementById("str").value;
+            let str1 = document.getElementById("str").value;
+
+            var a=str.length;
+            var b=str.charAt(1);
+            var c=str.slice(2,5);
+            var d=str.substring(2);
+            var e=str.substr(2,5);
+            var f=str.toUpperCase();
+            var g=str.toLowerCase();
+            var h=str.concat(str1);
+            var i=str.trim();
+            var j=str.trimStart();
+            var k=str.repeat(2);
+            var l=str.replace("string","welcome");
+            var m=str.replaceAll("string","welcomeprogram");
+            var n=str.split("r"); 
+
+
+            var b1=a +"<br>"+b+"<br>"+c+"<br>"+d+"<br>"+e+"<br>"+f+"<br>"+g+"<br>"+h+"<br>"+i+"<br>"+j+"<br>"+k+"<br>"+l+"<br>"+m+"<br>"+n;
+            document.getElementById("result").innerHTML = b1;
+            
+        }
+         </script> 
+         </head>  
+         <body>
+            Enter the Strings :<input type="text" id="str" placeholder="Enter a string"><br><br>
+            <button onclick="myFunction()">String</button><br><br>
+            <div id="result"></div>
+        </body>
+
+</html>

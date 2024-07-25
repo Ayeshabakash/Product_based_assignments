@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Events</title>
+  <script>
+    function handleClick() {
+      document.getElementById('output').innerHTML = '<p>Button clicked!</p>';
+    }
+
+    function handleMouseOver() {
+      document.getElementById('output').innerHTML = '<p>Mouse over event occurred!</p>';
+    }
+
+    function handleMouseOut() {
+      document.getElementById('output').innerHTML = '<p>Mouse out event occurred!</p>';
+    }
+
+    function handleChange(event) {
+      const selectedOption = event.target.value;
+      document.getElementById('output').innerHTML = '<p>Selected option:' + selectedOption+'</p>';
+    }
+
+    function handleKeyUp(event) {
+      const enteredText = event.target.value;
+      document.getElementById('output').innerHTML = '<p> Entered text:' + enteredText + '</p>';
+    }
+  </script>
+</head>
+<body>
+  <h2>JavaScript Events</h2>
+  
+  <div>
+    
+    Enter Text: <input type="text" id="inputText" onkeyup="handleKeyUp(event)">
+  </div>
+
+  <button onclick="handleClick()">Click Me</button>
+
+  <div id="mouseoverDiv" onmouseover="handleMouseOver()">Mouse over me</div>
+  <div id="mouseoutDiv" onmouseout="handleMouseOut()">Mouse out of me</div>
+
+  <div>
+    <label for="changeInput">Select an option:</label>
+    <select id="changeInput" onchange="handleChange(event)">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+  </div>
+
+  <div id="output"></div>
+
+  
+</body>
+</html>
