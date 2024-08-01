@@ -13,55 +13,77 @@
                                     <label for="Employee Id">
                                         Employee Id
                                     </label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="empId" 
+                                    <input type="text"
+                                           class="form-control"
+                                           name="empId"
                                            #empId="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
                                             />
                                 </div>
+
+
+                                <div *ngIf="empId.touched">
+                                  <div *ngIf="empId.errors?.['required']">
+                                    <b style="color: red;">Employee Id Required.</b>
+                                  </div>
+                                  <div *ngIf="empId.errors?.['pattern']">
+                                    <font color="red"><b>Invalid Employee Id.</b></font>
+                                  </div>
+                                </div>
+
+
                                 <div class="form-group">
                                     <label for="Employee Name">
                                         Employee Name
                                     </label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="empName" 
+                                    <input type="text"
+                                           class="form-control"
+                                           name="empName"
                                            #empName="ngModel" ngModel
+                                           required
                                             />
                                 </div>
+
+                                <div *ngIf="empId.touched">
+                                    <div *ngIf="empId.errors?.['required']">
+                                      <b style="color: red;">Employee Name Required.</b>
+                                    </div>
+
+
                                 <div class="form-group">
                                     <label for="Employee Salary">
                                         Employee Salary
                                     </label>
-                                    <input type="text" 
-                                           class="form-control" 
-                                           name="empSalary" 
+                                    <input type="text"
+                                           class="form-control"
+                                           name="empSalary"
                                            #empSalary="ngModel" ngModel
                                            />
                                 </div>
-                                                              
-                                <button class="btn btn-success">
-                                    Insert 
+
+                                <button class="btn btn-success" (click)="insertEmployee(myForm.value)">
+                                    Insert
                                 </button>
                             &nbsp;&nbsp;
                                 <button class="btn btn-primary"  >
-                                    Update 
+                                    Update
                                 </button>&nbsp;&nbsp;
                                 <button class="btn btn-danger" >
-                                    Delete 
+                                    Delete
                                 </button>&nbsp;&nbsp;
                                 <button class="btn btn-warning" >
-                                    Find 
+                                    Find
                                 </button>
                                 &nbsp;&nbsp;
                                 <button class="btn btn-info" >
                                     Find All
                                 </button>
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>
-         
+
     </body>
 </html>
