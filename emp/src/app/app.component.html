@@ -25,10 +25,10 @@
 
                                 <div *ngIf="empId.touched">
                                   <div *ngIf="empId.errors?.['required']">
-                                    <b style="color: red;">Employee Id Required.</b>
+                                    <b style="color: rgb(237, 28, 233);">Employee Id Required.</b>
                                   </div>
                                   <div *ngIf="empId.errors?.['pattern']">
-                                    <font color="red"><b>Invalid Employee Id.</b></font>
+                                    <font color="purple"><b>Invalid Employee Id.</b></font>
                                   </div>
                                 </div>
 
@@ -42,13 +42,18 @@
                                            name="empName"
                                            #empName="ngModel" ngModel
                                            required
+                                           pattern="[a-z]"
                                             />
                                 </div>
 
-                                <div *ngIf="empId.touched">
-                                    <div *ngIf="empId.errors?.['required']">
-                                      <b style="color: red;">Employee Name Required.</b>
+                                <div *ngIf="empName.touched">
+                                    <div *ngIf="empName.errors?.['required']">
+                                      <b style="color: rgb(237, 28, 233);">Employee Name Required.</b>
                                     </div>
+                                    <div *ngIf="empName.errors?.['pattern']">
+                                      <font color="purple"><b>Invalid Employee Name.</b></font>
+                                    </div>
+                                  </div>
 
 
                                 <div class="form-group">
@@ -59,8 +64,19 @@
                                            class="form-control"
                                            name="empSalary"
                                            #empSalary="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]"
                                            />
                                 </div>
+
+                                <div *ngIf="empSalary.touched">
+                                    <div *ngIf="empSalary.errors?.['required']">
+                                      <b style="color: rgb(237, 28, 233);">Employee Salary Required.</b>
+                                    </div>
+                                    <div *ngIf="empSalary.errors?.['pattern']">
+                                      <font color="purple"><b>Invalid Employee Salary.</b></font>
+                                    </div>
+                                  </div>
 
                                 <button class="btn btn-success" (click)="insertEmployee(myForm.value)">
                                     Insert
