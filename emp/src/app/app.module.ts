@@ -4,8 +4,8 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { EmployeeserviceService } from './employeeservice.service';
-
+import { EmployeeService } from './employeeservice.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +14,11 @@ import { EmployeeserviceService } from './employeeservice.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration(),
-    EmployeeserviceService
+    EmployeeService
   ],
   bootstrap: [AppComponent]
 })

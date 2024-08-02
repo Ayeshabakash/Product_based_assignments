@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { employee } from './model/employee';
+import { EmployeeService } from './employeeservice.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,19 @@ import { employee } from './model/employee';
 export class AppComponent {
   title = 'employee';
   employee: employee;
+  result : string;
+  flag : boolean;
 
-  constructor(){
+  constructor(private service : EmployeeService){
     this.employee=new employee();
+    this.result="";
+    this.flag=false;
   }
   insertEmployee(data:any){
-    this.employee.empId=data.empId;
+    this.employee.id=data.empId;
     this.employee.empName=data.empName;
     this.employee.empSalary=data.empSalary;
-    alert(data.empId+" "+data.empName+" "+data.empSalary);
+
+    this.result=this.service.insertEmployee(this.employee);
   }
 }

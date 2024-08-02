@@ -1,5 +1,5 @@
 export class employee{
-    empId:number=0;
-    empName:string="";
-    empSalary:number=0;
-  }
+  id:number=0;
+  empName:string="";
+  empSalary:number=0;
+}

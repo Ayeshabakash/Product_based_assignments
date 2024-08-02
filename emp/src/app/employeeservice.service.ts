@@ -1,9 +1,21 @@
 import { Injectable } from '@angular/core';
+import { employee } from './model/employee';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeserviceService {
+export class EmployeeService {
 
-  constructor() { }
+  url:string;
+
+  constructor(private http: HttpClient) {
+    this.url="http://localhost:3004/employees";
+
+   }
+
+   insertEmployee(employee : employee){
+    this.http.post<employee>(this.url, employee).subscribe();
+    return "Employee Details Added";
+   }
 }
