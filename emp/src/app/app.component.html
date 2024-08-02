@@ -10,19 +10,19 @@
                                     </label>
                                     <input type="text"
                                            class="form-control"
-                                           name="empId"
-                                           #empId="ngModel" ngModel
+                                           name="id"
+                                           #id="ngModel" ngModel
                                            required
                                            pattern="[0-9]+"
                                             />
                                 </div>
 
 
-                                <div *ngIf="empId.touched">
-                                  <div *ngIf="empId.errors?.['required']">
+                                <div *ngIf="id.touched">
+                                  <div *ngIf="id.errors?.['required']">
                                     <b style="color: rgb(47, 0, 255);">Employee Id Required.</b>
                                   </div>
-                                  <div *ngIf="empId.errors?.['pattern']">
+                                  <div *ngIf="id.errors?.['pattern']">
                                     <font color="blue"><b>Invalid Employee Id.</b></font>
                                   </div>
                                 </div>
@@ -43,7 +43,7 @@
 
 
                                 <div *ngIf="empName.touched">
-                                  <div *ngIf="empId.errors?.['required']">
+                                  <div *ngIf="empName.errors?.['required']">
                                     <b style="color: rgb(47, 0, 255);">Employee Name Required.</b>
                                   </div>
                                   <div *ngIf="empName.errors?.['pattern']">
@@ -66,7 +66,7 @@
                                 </div>
 
                                 <div *ngIf="empSalary.touched">
-                                  <div *ngIf="empId.errors?.['required']">
+                                  <div *ngIf="empSalary.errors?.['required']">
                                     <b style="color: rgb(47, 0, 255);">Employee Salary Required.</b>
                                   </div>
                                   <div *ngIf="empSalary.errors?.['pattern']">
@@ -79,10 +79,10 @@
                                     Insert
                                 </button>
                             &nbsp;&nbsp;
-                                <button class="btn btn-primary"  >
+                                <button class="btn btn-primary" (click)="updateEmployee(myForm.value)">
                                     Update
                                 </button>&nbsp;&nbsp;
-                                <button class="btn btn-danger" >
+                                <button class="btn btn-danger" (click)="deleteEmployee(myForm.value)">
                                     Delete
                                 </button>&nbsp;&nbsp;
                                 <button class="btn btn-warning" >

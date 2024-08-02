@@ -19,10 +19,22 @@ export class AppComponent {
     this.flag=false;
   }
   insertEmployee(data:any){
-    this.employee.id=data.empId;
+    this.employee.id=data.id;
     this.employee.empName=data.empName;
     this.employee.empSalary=data.empSalary;
 
     this.result=this.service.insertEmployee(this.employee);
   }
+  updateEmployee(data:any){
+    this.employee.id=data.id;
+    this.employee.empName=data.empName;
+    this.employee.empSalary=data.empSalary;
+
+    this.result=this.service.updateEmployee(this.employee);
+  }
+  deleteEmployee(data:any){
+    this.result=this.service.deleteEmployee(data.id);
+  }
+
+
 }
