@@ -85,13 +85,12 @@
                                 <button class="btn btn-danger" (click)="deleteEmployee(myForm.value)">
                                     Delete
                                 </button>&nbsp;&nbsp;
-                                <button class="btn btn-warning" >
-                                    Find
-                                </button>
-                                &nbsp;&nbsp;
-                                <button class="btn btn-info" >
+                                <button class="btn btn-info" (click)="findallEmployee(myForm.value)">
                                     Find All
-                                </button>
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-info" (click)="findEmployee(myForm.value)">
+                                  Find 
+                              </button>&nbsp;&nbsp;
                             </form>
 
                         </div>
