@@ -1,33 +1,60 @@
 <div id="header">
-  <h1>Variety of Species</h1>
-</div>
-<br>
+  <h1 style="text-align: center; padding-top: 25px;">Species</h1>
+</div><br>
 <div id="side1">
-  <div id="s1">
-    <h3 style="padding-left: 90px;">Species List</h3><br><br>
-      Species<br>
-      <input type="text">
+  <div id="s1" class="form-group">
+    <form #myForm="ngForm">
+      <h3 style="padding-left: 70px;"><u>SPECIES LIST</u></h3><br>Species Id<br>
+      <input type="text" placeholder="101" class="form-control" name="speId" #speId="ngModel" ngModel required pattern="[0-9]+"/>
+      <div *ngIf="speId.touched">
+        <div *ngIf="speId.errors?.['required']">
+            <b style="color: red;">Species ID Required.</b>
+        </div>
+        <div *ngIf="speId.errors?.['pattern']">
+            <b style="color: red;">Invalid speId.</b>
+        </div>
+    </div>
+      Client Name<br>
+      <input type="text" placeholder="Enter the Name" name="speName" #speName="ngModel" ngModel required/><br>
+      <div *ngIf="speName.touched">
+        <div *ngIf="speName.errors?.['required']">
+            <b style="color: red;">Species Name Required.</b>
+        </div>
+    </div>
+      Rescued Place<br>
+      <input type="text" placeholder="Enter the Place" name="spePlace" #spePlace="ngModel" ngModel required/><br>
+      <div *ngIf="spePlace.touched">
+        <div *ngIf="spePlace.errors?.['required']">
+            <b style="color: red;">Species Place Required.</b>
+        </div>
+      </div>
+      Date<br>
+      <input type="date" id="dot">
       <br><br>
-      Species No<br>
-      <input type="text">
-      <br><br>
-      Country<br>
-      <input type="text">
+        <button class="btn btn-primary" (click)="savevol(myForm.value)">Save</button>&nbsp;&nbsp;
+        <button class="btn btn-primary"  (click)="updatevol(myForm.value)">Edit Species</button>&nbsp;&nbsp;
+        <button class="btn btn-danger" (click)="deletevol(myForm.value)">Delete</button>&nbsp;&nbsp;
+        <button class="btn btn-danger" (click)="findvol(myForm.value)">Find</button>&nbsp;&nbsp;
+        <button class="btn btn-danger" (click)="findallvol()">Find All</button>&nbsp;&nbsp;
+      </form>
+      <br>
 
-      <br><br><br>
-        <button type="submit" id="btn">Edit Client</button>&nbsp;&nbsp;
-        <button type="submit" id="btn">Delete</button>&nbsp;&nbsp;
-        <button type="submit" id="btn">Save</button>&nbsp;&nbsp;
     </div>
   <div id="s2">
-    <table>
-      <tr><th style="width: 50px;">Species No</th><th>Species</th><th>Country</th></tr>
-      <tr><td>01</td><td>Mangifera Indica</td><td>Brazil</td></tr>
-      <tr><td>02</td><td>Phytelephas</td><td>Congo</td></tr>
-      <tr><td>03</td><td>Phoenix Dactylifera</td><td>Ecuador</td></tr>
-      <tr><td>04</td><td>Cocos Nucifera</td><td>Venezuela</td></tr>
-      <tr><td>05</td><td>Solanum Lycopersicum</td><td>New Guinea</td></tr>
-    </table>
+    <h3>{{result}}</h3>
+        <div style="width: 80%; padding-left: 90px;" *ngIf="flag" >
+            <table width="80%" align="center" class="table table-bordered">
+                <tr>
+                    <th>SPE-ID</th>
+                    <th>Species Name</th>
+                    <th>Place</th>
+                </tr>
+                <tr *ngFor="let bke of volArr">
+                    <td>{{bke.id}}</td>
+                    <td>{{bke.speName}}</td>
+                    <td>{{bke.spePlace}}</td>
+                </tr>
+            </table>
+        </div>
   </div>
-
-  </div>
+</div>

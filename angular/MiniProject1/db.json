@@ -1,0 +1,24 @@
+{
+  "Species_list": [
+    {
+      "id": "101",
+      "speName": "Mangifera indica",
+      "spePlace": "Brazil"
+    },
+    {
+      "id": "102",
+      "speName": "Nicotina tobaccum",
+      "spePlace": "East london"
+    },
+    {
+      "id": "103",
+      "speName": "Lactuca sativa",
+      "spePlace": "Hungary"
+    },
+    {
+      "id": "104",
+      "speName": "Curcuma longa",
+      "spePlace": "Poland"
+    }
+  ]
+}
