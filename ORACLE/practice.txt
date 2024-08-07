@@ -1,0 +1,115 @@
+
+1. CREATE TABLE Client_Master (
+  Client_No VARCHAR(6) PRIMARY KEY,
+  Name VARCHAR(20),
+  City VARCHAR(15),
+  Pincode INT,
+  Bal_due DECIMAL(10, 2)
+);
+SQL query successfully executed. However, the result set is empty.
+Client_No	Name	City	Pincode	Bal_due
+
+2. INSERT INTO Client_Master (Client_No, Name, City, Pincode, Bal_due)
+VALUES
+  ('C00001', 'SMITHA JAIN', 'Mumbai', 400054, 15000.00),
+  ('C00002', 'VANDANA  RAO', 'Chennai', 780001, 0.00),
+  ('C00003', 'PREM PUJARI', 'Mumbai', 400057, 5000.00),
+  ('C00004', 'BASU NATH', 'Mumbai', 400056, 0.00),
+  ('C00005', 'RAVI SHANKAR', 'Delhi', 100001, 2000.00),
+  ('C00006', 'ROOPA', 'Mumbai', 400050, 0.00);
+SQL query successfully executed. However, the result set is empty.
+Client_No	Name	City	Pincode	Bal_due
+C00001	SMITHA JAIN	Mumbai	400054	15000
+C00002	VANDANA RAO	Chennai	780001	0
+C00003	PREM PUJARI	Mumbai	400057	5000
+C00004	BASU NATH	Mumbai	400056	0
+C00005	RAVI SHANKAR	Delhi	100001	2000
+C00006	ROOPA	        Mumbai	400050	0
+
+Table2
+
+1. CREATE TABLE Sale_Order (
+  Order_No VARCHAR(6) PRIMARY KEY,
+  Order_Date DATE,
+  Client_No VARCHAR(6),
+  Salesman_No VARCHAR(6),
+  Dely_Date DATE,
+  Order_Status VARCHAR(10)
+);
+SQL query successfully executed. However, the result set is empty.
+Order_No	Order_Date	Client_No	Salesman_No	Dely_Date	Order_Status
+
+2. INSERT INTO Sale_Order (Order_No, Order_Date, Client_No, Salesman_No, Dely_Date, Order_Status)
+VALUES
+  ('O19001', '12-Jan-13', 'C00001', 'S00001', '20-Jan-13', 'In process'),
+  ('O19002', '25-Jan-13', 'C00002', 'S00002', '27-Jan-13', 'Cancelled'),
+  ('O46865', '18-Feb-13', 'C00003', 'S00003', '20-Feb-13', 'Fulfilled'),
+  ('O19003', '03-Apr-13', 'C00001', 'S00001', '07-Apr-13', 'Fulfilled'),
+  ('O46866', '20-May-13', 'C00004', 'S00002', '07-Apr-13', 'Cancelled'),
+  ('O19008', '24-May-13', 'C00005', 'S00004', '26-May-13', 'In process');
+
+SQL query successfully executed
+Order_No	Order_Date	Client_No	Salesman_No	Dely_Date	Order_Status
+O19001	12-Jan-13	C00001	S00001	20-Jan-13	In process
+O19002	25-Jan-13	C00002	S00002	27-Jan-13	Cancelled
+O46865	18-Feb-13	C00003	S00003	20-Feb-13	Fulfilled
+O19003	03-Apr-13	C00001	S00001	07-Apr-13	Fulfilled
+O46866	20-May-13	C00004	S00002	07-Apr-13	Cancelled
+O19008	24-May-13	C00005	S00004	26-May-13	In process
+
+
+Write SQL commands for the following:
+
+1. List all details from the client_master table for clients whose Bal_due = 0.
+
+SELECT * FROM Client_Master WHERE Bal_due = 0;
+Client_No	Name	City	Pincode	Bal_due
+C00002	VANDANA RAO	Chennai	780001	0
+C00004	BASU NATH	Mumbai	400056	0
+C00006	ROOPA	        Mumbai	400050	0
+
+
+2. Update table client_master, Change city of Client_no C00004 to Jaipur.
+UPDATE Client_Master SET City = 'Jaipur' WHERE Client_No = 'C00004';
+SQL query successfully executed
+Client_No	Name	City	Pincode	Bal_due
+C00001	SMITHA JAIN	Mumbai	400054	15000
+C00002	VANDANA RAO	Chennai	780001	0
+C00003	PREM PUJARI	Mumbai	400057	5000
+C00004	BASU NATH	Jaipur	400056	0
+C00005	RAVI SHANKAR	Delhi	100001	2000
+C00006	ROOPA    	Mumbai	400050	0
+
+3. Retrieve records of clients residing in Mumbai.
+SELECT * FROM Client_Master WHERE City = 'Mumbai';
+Client_No	Name	City	Pincode	Bal_due
+C00001	SMITHA JAIN	Mumbai	400054	15000
+C00003	PREM PUJARI	Mumbai	400057	5000
+C00006	ROOPA	        Mumbai	400050	0
+
+4. Find the name and address of customer who has placed Order_no 'O19003' and 'O19002' respectively.
+SELECT Name, City, Pincode FROM Client_Master WHERE Client_No = (  SELECT Client_No   FROM Sale_Order WHERE Order_No = 'O19003');
+Name	City	Pincode
+SMITHA JAIN	Mumbai	400054
+SELECT Name, City, Pincode FROM Client_Master WHERE Client_No = (  SELECT Client_No FROM Sale_Order  WHERE Order_No = 'O19002');
+Name	City	Pincode
+VANDANA RAO	Chennai	780001
+
+5. Construct English like sentence from the table client_master ({Customer name} live in the city of {city}).
+SELECT Name || ' live in the city of ' || City || '.' AS Sentence FROM Client_Master;
+
+Sentence
+SMITHA JAIN live in the city of Mumbai.
+VANDANA RAO live in the city of Chennai.
+PREM PUJARI live in the city of Mumbai.
+BASU NATH live in the city of Jaipur.
+RAVI SHANKAR live in the city of Delhi.
+ROOPA live in the city of Mumbai.
+
+
+6. List the client_no, name, city and pincode of clients whose Order_status is "In process".
+SELECT Client_Master.client_no, Client_Master.name, Client_Master.city, Client_Master.pincode FROM Client_Master JOIN Sale_Order ON Client_Master.client_no = Sale_Order.client_no WHERE Sale_Order.Order_status = 'In process';
+
+Client_No	Name	City	Pincode
+C00001	SMITHA JAIN	Mumbai	400054
+C00005	RAVI SHANKAR	Delhi	100001

@@ -1,0 +1,105 @@
+1. create table tbl_employee (eid number(5), ename varchar2(20), esalary number(5));
+SQL query successfully executed. However, the result set is empty.
+eid	ename	salary
+
+2. insert into tbl_employee values(101, 'Vidhu', 2000);
+insert into tbl_employee values(102, 'Ani', 3000);
+insert into tbl_employee values(103, 'Raj', 4000);
+SQL query successfully executed. However, the result set is empty.
+eid	ename	esalary
+101	Vidhu	2000
+102	Ani	3000
+103	Raj	4000
+
+3. select * from tbl_employee;
+eid	ename	esalary
+101	Vidhu	2000
+102	Ani	3000
+103	Raj	4000
+
+4. select eid,esalary from tbl_employee;
+eid	esalary
+101	2000
+102	3000
+103	4000
+
+5. select eid from tbl_employee;
+eid
+101
+102
+103
+
+6.select distinct eid from tbl_employee;
+eid
+101
+102
+103
+
+7. select *from tbl_employee where eid=101;
+eid	ename	esalary
+101	Vidhu	2000
+
+8. select *from tbl_employee where ename='Ani';
+eid	ename	esalary
+102	Ani	3000
+
+9. select *from tbl_employee where esalary>3000;
+eid	ename	esalary
+103	Raj	4000
+105	prathi	7000
+104	AlexRaj	5000
+
+10. select *from tbl_employee where ename != 'Vidhu';
+eid	ename	esalary
+102	Ani	3000
+103	Raj	4000
+105	prathi	7000
+104	AlexRaj	5000
+
+11. select *from tbl_employee where ename <> 'Vidhu';
+eid	ename	esalary
+102	Ani	3000
+103	Raj	4000
+105	prathi	7000
+104	AlexRaj	5000
+
+12. update tbl_employee set esalary=7000 where eid=102;
+
+SQL query successfully executed. 
+eid	ename	esalary
+101	Vidhu	2000
+102	Ani	7000
+103	Raj	4000
+105	prathi	7000
+104	AlexRaj	5000
+
+13. update tbl_employee set esalary=2000, ename='Ajay' where eid=101;
+SQL query successfully executed.
+eid	ename	esalary
+101	Ajay	2000
+102	Ani	7000
+103	Raj	4000
+105	prathi	7000
+104	AlexRaj	5000
+
+14. delete from tbl_employee where eid=102;
+SQL query successfully executed.
+1 row deleted
+eid	ename	esalary
+101	Ajay	2000
+103	Raj	4000
+105	prathi	7000
+104	AlexRaj	5000
+
+15.select *from tbl_employee where eid in(101,102,103);
+eid	ename	esalary
+101	Ajay	2000
+103	Raj	4000
+
+16. select *from tbl_employee where eid not in(101,102,103);
+eid	ename	esalary
+105	prathi	7000
+104	AlexRaj	5000
+
+17. drop table tbl_employee
+table deleted 

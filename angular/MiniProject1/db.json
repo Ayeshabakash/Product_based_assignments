@@ -8,17 +8,22 @@
     {
       "id": "102",
       "speName": "Nicotina tobaccum",
-      "spePlace": "East london"
-    },
-    {
-      "id": "103",
-      "speName": "Lactuca sativa",
-      "spePlace": "Hungary"
+      "spePlace": "east london"
     },
     {
       "id": "104",
       "speName": "Curcuma longa",
       "spePlace": "Poland"
+    },
+    {
+      "id": "102",
+      "speName": "Nicotina tobaccum",
+      "spePlace": "east london"
+    },
+    {
+      "id": "102",
+      "speName": "Nicotina tobaccum",
+      "spePlace": "east london"
     }
   ]
 }
