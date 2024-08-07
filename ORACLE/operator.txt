@@ -1,0 +1,125 @@
+SQL> select * from tbl_employee;
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+       102 Ani                        3000
+       103 ram                        4000
+
+SQL>   select * from tbl_employee where eid in (102,104,103);
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       102 Ani                        3000
+       103 ram                        4000
+
+SQL> select * from tbl_employee where eid not in (102,104,103);
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+SQL> select * from tbl_employee;
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+       102 Ani                        3000
+       103 ram                        4000
+
+SQL> select * from tbl_employee where esalary between 2000 and 6000;
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+       102 Ani                        3000
+       103 ram                        4000
+
+SQL> select * from tbl_employee where esalary not between 3000 and 6000;
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+
+SQL> select * from tbl_employee where esalary >=4000 and eid in (101,103);
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       103 ram                        4000
+
+SQL> select * from tbl_employee where esalary >=4000 or eid in (101,103);
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+       103 ram                        4000
+SQL> select * from tbl_employee where ename like 'P%';
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 dhoni                      9000
+
+SQL> select * from tbl_employee where ename like '_a%';
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       103 ram                        4000
+
+SQL> select * from tbl_employee where ename not like '_a%';
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+       102 Ani                        3000
+       104 santhosh                   5000
+       101 dhoni                      9000
+SQL> select * from tbl_employee where ename like '%a%';
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       103 ram                        4000
+       104 santhosh                   5000
+       101 dhoni                      9000
+
+SQL> select * from tbl_employee where ename like '%i';
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       102 Ani                       3000
+       101 dhoni                     9000
+
+SQL> insert into tbl_employee(eid,esalary) values(101,9000);
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from tbl_employee;
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+       102 Ani                        3000
+       103 ram                        4000
+       104 santhosh                   5000
+       101 dhoni                      9000
+       101                            9000
+
+6 rows selected.
+
+SQL> select * from tbl_employee where ename is null;
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101                            9000
+
+SQL> select * from tbl_employee where ename is not null;
+
+       EID ENAME                   ESALARY
+---------- -------------------- ----------
+       101 ayesha                     2000
+       102 Ani                        3000
+       103 ram                        4000
+       104 santhosh                   5000
+       101 dhoni                      9000
