@@ -2,20 +2,6 @@ SQL> create table tbl_employee(id number,name varchar(20),salary number);
 
 Table created.
 
-SQL> insert tbl_employee(101,'raja',2500);
-insert tbl_employee(101,'raja',2500)
-       *
-ERROR at line 1:
-ORA-00925: missing INTO keyword
-
-
-SQL> insert into tbl_employee value(101,'raja',2500);
-insert into tbl_employee value(101,'raja',2500)
-                               *
-ERROR at line 1:
-ORA-00928: missing SELECT keyword
-
-
 SQL> insert into tbl_employee values(101,'raja',2500);
 
 1 row created.
