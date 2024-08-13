@@ -20,4 +20,3 @@ class Rectangle {
     }
 }
 
-b
